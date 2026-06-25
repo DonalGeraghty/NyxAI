@@ -6,6 +6,9 @@ import './HubPage.css'
 const DAY_MS = 86400000
 const GLASS_ML = 250
 const PINT_ML = 568
+const CAL_SNACK_KCAL = 100
+const CAL_LIGHT_MEAL_KCAL = 250
+const CAL_MEAL_KCAL = 500
 
 function formatYmd(date) {
   const y = date.getFullYear()
@@ -226,6 +229,32 @@ function Calories() {
             <p className="hub-water-total">
               Today: <strong>{todayCalories} kcal</strong>
             </p>
+            <div className="hub-water-actions">
+              <button
+                type="button"
+                className="hub-btn"
+                data-testid="calories-add-snack"
+                onClick={() => addCalories(CAL_SNACK_KCAL)}
+              >
+                +{CAL_SNACK_KCAL} kcal
+              </button>
+              <button
+                type="button"
+                className="hub-btn"
+                data-testid="calories-add-light-meal"
+                onClick={() => addCalories(CAL_LIGHT_MEAL_KCAL)}
+              >
+                +{CAL_LIGHT_MEAL_KCAL} kcal
+              </button>
+              <button
+                type="button"
+                className="hub-btn"
+                data-testid="calories-add-meal"
+                onClick={() => addCalories(CAL_MEAL_KCAL)}
+              >
+                +{CAL_MEAL_KCAL} kcal
+              </button>
+            </div>
             <div className="hub-water-custom">
               <input
                 className="hub-input"
