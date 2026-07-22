@@ -42,7 +42,10 @@ function AccountPage() {
           </Link>
         </header>
 
-        <section className="account-danger" aria-labelledby="danger-heading">
+        {user?.isDemo ? (
+          <p className="account-demo">This is a local dummy account. No account data is stored on the server.</p>
+        ) : (
+          <section className="account-danger" aria-labelledby="danger-heading">
           <h2 id="danger-heading" className="account-danger-title">
             Delete account
           </h2>
@@ -73,7 +76,8 @@ function AccountPage() {
               {busy ? 'Deleting…' : 'Delete my account'}
             </button>
           </form>
-        </section>
+          </section>
+        )}
       </div>
     </main>
   )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 
 function LoginSplash() {
-  const { login, register } = useAuth()
+  const { login, loginAsDemo, register } = useAuth()
   const [mode, setMode] = useState('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -32,6 +32,11 @@ function LoginSplash() {
         <p className="login-splash-intro">
           Sign in to access your NyxAI account.
         </p>
+        {import.meta.env.DEV && (
+          <button type="button" className="login-splash-demo" onClick={loginAsDemo}>
+            Continue as dummy user
+          </button>
+        )}
         <div className="login-splash-tabs" role="tablist">
           <button
             type="button"

@@ -8,6 +8,8 @@ import {
 } from '../config/api'
 
 const AuthContext = createContext(null)
+const DEMO_TOKEN = 'local-demo-session'
+const DEMO_USER = { email: 'demo@nyxai.local', isDemo: true }
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
@@ -20,6 +22,11 @@ export function AuthProvider({ children }) {
 
   const bootstrap = useCallback(async () => {
     const token = getStoredToken()
+    if (import.meta.env.DEV && token === DEMO_TOKEN) {
+      setUser(DEMO_USER)
+      setLoading(false)
+      return
+    }
     if (!token) {
       setUser(null)
       setLoading(false)
@@ -40,6 +47,12 @@ export function AuthProvider({ children }) {
     } finally {
       setLoading(false)
     }
+  }, [])
+
+  const loginAsDemo = useCallback(() => {
+    if (!import.meta.env.DEV) return
+    setStoredToken(DEMO_TOKEN)
+    setUser(DEMO_USER)
   }, [])
 
   useEffect(() => {
@@ -98,12 +111,13 @@ export function AuthProvider({ children }) {
       user,
       loading,
       login,
+      loginAsDemo,
       register,
       logout,
       deleteAccount,
       refreshSession: bootstrap,
     }),
-    [user, loading, login, register, logout, deleteAccount, bootstrap]
+    [user, loading, login, loginAsDemo, register, logout, deleteAccount, bootstrap]
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
