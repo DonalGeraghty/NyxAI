@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
-import './LoginSplash.css'
 
 function LoginSplash() {
   const { login, register } = useAuth()

@@ -8,8 +8,6 @@ import {
   Routes,
   useLocation,
 } from 'react-router-dom'
-import './App.css'
-import './components/Navbar.css'
 import AccountPage from './pages/AccountPage'
 import LoginSplash from './pages/LoginSplash'
 import MinervaHome from './pages/MinervaHome'

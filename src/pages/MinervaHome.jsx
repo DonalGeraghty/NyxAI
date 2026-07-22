@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './HubPage.css'
-import './MinervaHome.css'
 
 function MinervaHome() {
   return (
@@ -9,7 +7,7 @@ function MinervaHome() {
       <div className="hub-inner">
         <header className="hub-header">
           <h1 className="hub-title">Minerva</h1>
-          <p className="hub-sub">Your private account, presented in a focused night-mode interface.</p>
+          <p className="hub-sub">Your private Minerva account.</p>
         </header>
 
         <p className="hub-body">Review your profile and account settings below.</p>

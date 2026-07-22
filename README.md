@@ -1,6 +1,6 @@
 # Minerva
 
-Minerva is a small authenticated React/Vite frontend with a permanent night-mode interface. Authentication and account management are provided by the Janus API hosted on Google Cloud Run.
+Minerva is a small authenticated React/Vite frontend. Authentication and account management are provided by the Janus API hosted on Google Cloud Run.
 
 ## Features
 
@@ -8,7 +8,7 @@ Minerva is a small authenticated React/Vite frontend with a permanent night-mode
 - Authenticated home page
 - Account details, sign out, and account deletion
 - Responsive navigation
-- Permanent night-mode color palette
+- Unstyled React structure ready for a new visual system
 
 ## Requirements
 
@@ -39,13 +39,12 @@ npm run build-storybook
 
 ```text
 src/
-├── components/       # Navigation styles and Storybook preview
+├── components/       # Storybook previews
 ├── config/           # Janus API configuration
 ├── context/          # Authentication state
 ├── pages/            # Home, login, and account pages
 ├── styles/           # Shared page styles
 ├── App.jsx           # Protected layout, navigation, and routes
-├── index.css         # Permanent night-mode palette and global styles
 └── main.jsx          # React entry point
 ```
 
