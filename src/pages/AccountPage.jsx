@@ -48,8 +48,7 @@ function AccountPage() {
             Delete account
           </h2>
           <p className="account-danger-copy">
-            This removes your Janus account and all associated data (habits, todos, flashcards, and other saved
-            content). Your session ends immediately.
+            This removes your Janus account and all associated server data. Your session ends immediately.
           </p>
           <form className="account-delete-form" onSubmit={handleDelete}>
             <label className="account-delete-label" htmlFor="delete-password">

@@ -1,18 +1,13 @@
-/* =========================================
-   Navbar — desktop first, mobile hamburger
-   ========================================= */
-
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
-  background: linear-gradient(135deg, rgba(15, 15, 35, 0.97) 0%, rgba(26, 26, 46, 0.97) 100%);
-  backdrop-filter: blur(15px);
   z-index: 1000;
+  width: 100%;
   padding: 0.75rem 0;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(15, 15, 35, 0.97), rgba(26, 26, 46, 0.97));
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
 }
 
 .nav-container {
@@ -20,33 +15,26 @@
   margin: 0 auto;
   padding: 0 1.25rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
-/* ── Logo ── */
 .nav-logo h2 {
-  color: white;
-  font-weight: 700;
-  font-size: 1.4rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin: 0;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .nav-logo-link {
-  text-decoration: none;
-  color: inherit;
   display: inline-block;
-  border-radius: 8px;
-  padding: 0.1rem 0.35rem;
   margin: -0.1rem -0.35rem;
+  padding: 0.1rem 0.35rem;
+  color: inherit;
+  text-decoration: none;
   border: 2px solid transparent;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.nav-logo-link:hover h2 {
-  opacity: 0.95;
+  border-radius: 8px;
 }
 
 .nav-logo-link.is-active {
@@ -54,19 +42,16 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* ── Shared link style ── */
 .nav-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
   padding: 0.45rem 0.9rem;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  border: 2px solid transparent;
-  background: none;
+  color: white;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
-  font-family: inherit;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
 }
 
 .nav-link:hover {
@@ -74,81 +59,19 @@
   border-color: rgba(255, 255, 255, 0.25);
 }
 
-.nav-link.active {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.4);
-  font-weight: 700;
-}
-
-button.nav-logout {
-  background: rgba(255, 255, 255, 0.08);
-}
-button.nav-logout:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* ── Desktop nav links (centre) ── */
-.nav-links--desktop {
+.nav-right--desktop {
   display: flex;
-  flex: 1 1 auto;
-  min-width: 0;
-  flex-wrap: nowrap;
-  gap: 0.35rem;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
 }
 
-.nav-icon-link {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.nav-icon {
-  width: 1.18rem;
-  height: 1.18rem;
-}
-
-.nav-icon-link::after {
-  content: attr(aria-label);
-  position: absolute;
-  top: calc(100% + 0.45rem);
-  left: 50%;
-  transform: translateX(-50%) translateY(-4px);
-  opacity: 0;
-  pointer-events: none;
+.nav-time-muted,
+.nav-drawer-time {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
   white-space: nowrap;
-  color: white;
-  background: rgba(15, 15, 35, 0.98);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  padding: 0.3rem 0.45rem;
-  font-size: 0.74rem;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
-  transition: opacity 0.16s ease, transform 0.16s ease;
-}
-
-.nav-icon-link:hover::after,
-.nav-icon-link:focus-visible::after {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-.nav-label-sr {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 .nav-dropdown-wrap {
@@ -164,218 +87,149 @@ button.nav-logout:hover {
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
-  min-width: 170px;
+  min-width: 210px;
+  padding: 0.35rem;
+  pointer-events: none;
+  opacity: 0;
   background: rgba(15, 15, 35, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 10px;
-  padding: 0.35rem;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
-  opacity: 0;
-  pointer-events: none;
   transform: translateY(-6px);
   transition: opacity 0.18s ease, transform 0.18s ease;
 }
 
 .nav-dropdown-menu.is-open {
-  opacity: 1;
   pointer-events: auto;
+  opacity: 1;
   transform: translateY(0);
 }
 
-.nav-dropdown-link {
+.nav-user-email,
+.nav-drawer-email {
   display: block;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border-radius: 8px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-user-email {
+  padding: 0.35rem 0.6rem 0.5rem;
+}
+
+.nav-dropdown-link,
+.nav-drawer-link {
+  display: block;
   padding: 0.55rem 0.7rem;
+  color: white;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 8px;
 }
 
 .nav-dropdown-link:hover,
-.nav-dropdown-link.active {
+.nav-drawer-link:hover {
   background: rgba(255, 255, 255, 0.14);
 }
 
 .nav-dropdown-link-btn {
   width: 100%;
-  text-align: left;
-  border: none;
-  background: none;
-  font-family: inherit;
-  cursor: pointer;
 }
 
-/* ── Desktop right section ── */
-.nav-right--desktop {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.nav-logout,
+.nav-drawer-logout {
+  color: rgba(255, 180, 180, 0.9);
 }
 
-.nav-user-email {
-  max-width: 220px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.72);
-  font-weight: 500;
-  display: block;
-  padding: 0.35rem 0.6rem 0.5rem;
-}
-
-.nav-dropdown-menu--profile {
-  min-width: 210px;
-}
-
-.nav-theme-wrap {
-  padding: 0.15rem 0.6rem 0.55rem;
-}
-
-.nav-time-muted {
-  color: rgba(255, 255, 255, 0.62);
-  font-family: 'Courier New', monospace;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin: 0;
-  letter-spacing: 0.35px;
-  white-space: nowrap;
-}
-
-/* ── Mobile controls (hamburger + theme) — hidden on desktop ── */
 .nav-mobile-controls {
   display: none;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-/* ── Hamburger button ── */
 .nav-hamburger {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.45rem;
   display: flex;
+  padding: 0.45rem;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: 0;
   border-radius: 6px;
-  transition: background 0.2s;
 }
+
 .nav-hamburger:hover {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Three-bar → X animation */
 .nav-hamburger-icon,
 .nav-hamburger-icon::before,
 .nav-hamburger-icon::after {
+  position: relative;
   display: block;
   width: 22px;
   height: 2px;
   background: white;
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.2s ease;
-  position: relative;
 }
+
 .nav-hamburger-icon::before,
 .nav-hamburger-icon::after {
-  content: '';
   position: absolute;
   left: 0;
+  content: '';
 }
+
 .nav-hamburger-icon::before { top: -7px; }
-.nav-hamburger-icon::after  { top:  7px; }
+.nav-hamburger-icon::after { top: 7px; }
+.nav-hamburger-icon.is-open { background: transparent; }
+.nav-hamburger-icon.is-open::before { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger-icon.is-open::after { transform: translateY(-7px) rotate(-45deg); }
 
-/* Open (X) state */
-.nav-hamburger-icon.is-open {
-  background: transparent;
-}
-.nav-hamburger-icon.is-open::before {
-  transform: translateY(7px) rotate(45deg);
-}
-.nav-hamburger-icon.is-open::after {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ── Mobile drawer ── */
 .nav-drawer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  background: rgba(15, 15, 35, 0.98);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
+  max-height: 0;
+  padding: 0 1.25rem;
+  overflow: hidden;
   flex-direction: column;
   gap: 0.25rem;
+  background: rgba(15, 15, 35, 0.98);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
 .nav-drawer.is-open {
-  max-height: 560px;
+  max-height: 280px;
   padding: 0.75rem 1.25rem 1rem;
 }
 
-.nav-drawer-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.65rem 0.85rem;
-  border-radius: 8px;
-  transition: background 0.2s;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-family: inherit;
-  text-align: left;
-}
-.nav-drawer-link:hover,
-.nav-drawer-link.active {
-  background: rgba(255, 255, 255, 0.12);
-}
-.nav-drawer-logout {
-  color: rgba(255, 180, 180, 0.9);
-}
-.nav-drawer-divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 0.25rem 0;
-}
 .nav-drawer-email {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.55);
   padding: 0 0.85rem 0.25rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
+
+.nav-drawer-link {
+  padding: 0.65rem 0.85rem;
+  font-size: 1rem;
+}
+
 .nav-drawer-time {
-  font-family: 'Courier New', monospace;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
   padding: 0.5rem 0.85rem 0;
-  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: normal;
 }
 
-/* =========================================
-   Responsive breakpoints
-   ========================================= */
-
-/* Hide desktop sections, show mobile controls */
 @media (max-width: 768px) {
-  .nav-links--desktop,
-  .nav-right--desktop {
-    display: none;
-  }
-
-  .nav-mobile-controls {
-    display: flex;
-  }
+  .nav-right--desktop { display: none; }
+  .nav-mobile-controls { display: flex; }
 }
 
-/* Extra-small tweaks */
 @media (max-width: 360px) {
-  .nav-logo h2 {
-    font-size: 1.1rem;
-  }
+  .nav-logo h2 { font-size: 1.1rem; }
 }

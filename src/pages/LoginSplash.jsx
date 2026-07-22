@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ThemeToggle from '../components/ThemeToggle'
 import { useAuth } from '../context/AuthContext'
 import './LoginSplash.css'
 
@@ -28,12 +27,11 @@ function LoginSplash() {
   return (
     <div className="login-splash">
       <div className="login-splash-top">
-        <h1 className="login-splash-brand">Habit tracker</h1>
-        <ThemeToggle />
+        <h1 className="login-splash-brand">Minerva</h1>
       </div>
       <div className="login-splash-inner">
         <p className="login-splash-intro">
-          Sign in to open your habit grid. Your progress is saved to your account via the Janus API.
+          Sign in to access your Minerva account.
         </p>
         <div className="login-splash-tabs" role="tablist">
           <button

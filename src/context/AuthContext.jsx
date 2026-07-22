@@ -6,7 +6,6 @@ import {
   getStoredToken,
   setStoredToken,
 } from '../config/api'
-import { clearLegacyLocalCells } from '../habits/habitStorage'
 
 const AuthContext = createContext(null)
 
@@ -80,8 +79,7 @@ export function AuthProvider({ children }) {
   }, [])
 
   const deleteAccount = useCallback(async (password) => {
-    const email = user?.email
-    if (!email) throw new Error('Not signed in')
+    if (!user?.email) throw new Error('Not signed in')
     const res = await authFetch(API_ENDPOINTS.AUTH_DELETE_ACCOUNT, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -90,11 +88,6 @@ export function AuthProvider({ children }) {
     const data = await res.json().catch(() => ({}))
     if (!res.ok) {
       throw new Error(data.error || 'Could not delete account')
-    }
-    try {
-      clearLegacyLocalCells(email)
-    } catch {
-      /* ignore */
     }
     setStoredToken('')
     setUser(null)

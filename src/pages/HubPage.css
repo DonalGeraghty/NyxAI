@@ -1,9 +1,7 @@
-/* Shared layout for secondary pages (calories, stoic, etc.) */
-
 .hub-page {
-  padding: 5.5rem 1rem 2rem;
   max-width: 760px;
   margin: 0 auto;
+  padding: 5.5rem 1rem 2rem;
 }
 
 .hub-inner {
@@ -13,309 +11,27 @@
 }
 
 .hub-header {
-  border-bottom: 1px solid var(--border-color);
   padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .hub-title {
+  margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin: 0;
 }
 
 .hub-sub {
   margin: 0.4rem 0 0;
-  font-size: 0.9rem;
   color: var(--text-secondary);
+  font-size: 0.9rem;
   line-height: 1.45;
 }
 
 .hub-body {
-  font-size: 0.92rem;
+  margin: 0;
   color: var(--text-secondary);
+  font-size: 0.92rem;
   line-height: 1.55;
-  margin: 0;
-}
-
-.hub-body a {
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.hub-body a:hover {
-  text-decoration: underline;
-}
-
-.hub-card {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: var(--bg-secondary);
-  padding: 1rem 1.15rem;
-}
-
-.hub-card h2 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem;
-  color: var(--text-primary);
-}
-
-.hub-card p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.hub-form-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.hub-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.hub-field span {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.hub-input {
-  width: 100%;
-  font: inherit;
-  color: var(--text-primary);
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 0.6rem 0.7rem;
-  line-height: 1.4;
-  resize: vertical;
-}
-
-.hub-input:focus {
-  outline: none;
-  border-color: var(--accent-color);
-}
-
-.hub-chart-wrap {
-  margin-top: 0.5rem;
-}
-
-.hub-chart {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: var(--bg-tertiary);
-}
-
-.hub-chart-axis {
-  stroke: var(--border-color);
-  stroke-width: 1;
-}
-
-.hub-chart-line {
-  stroke: var(--accent-color);
-  stroke-width: 2;
-}
-
-.hub-chart-dot {
-  fill: var(--accent-color);
-}
-
-.hub-chart-meta {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.35rem;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-}
-
-.hub-water-total {
-  font-size: 0.92rem;
-  color: var(--text-primary);
-}
-
-.hub-water-actions {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.hub-water-custom {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.hub-btn {
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  font: inherit;
-  font-size: 0.88rem;
-  padding: 0.55rem 0.8rem;
-  cursor: pointer;
-}
-
-.hub-btn:hover {
-  border-color: var(--accent-color);
-}
-
-.hub-day-planner-options {
-  margin-bottom: 1rem;
-}
-
-.hub-day-planner-options-heading {
-  margin-bottom: 0.35rem;
-}
-
-.hub-day-planner-intro {
-  margin-bottom: 0.75rem;
-}
-
-.hub-day-planner-chart {
-  margin-top: 1.15rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.hub-day-planner-chart-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin: 0 0 0.35rem;
-  color: var(--text-primary);
-}
-
-.hub-day-planner-chart-caption {
-  margin: 0 0 0.75rem;
-  font-size: 0.82rem;
-}
-
-.hub-day-planner-bar-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.hub-day-planner-bar-row {
-  display: grid;
-  grid-template-columns: minmax(0, 7.5rem) 1fr auto;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.hub-day-planner-bar-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.hub-day-planner-bar-track {
-  height: 0.55rem;
-  border-radius: 4px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  overflow: hidden;
-  min-width: 0;
-}
-
-.hub-day-planner-bar-fill {
-  height: 100%;
-  min-width: 2px;
-  border-radius: 3px;
-  background: var(--accent-color);
-  transition: width 0.2s ease;
-}
-
-.hub-day-planner-bar-fill--muted {
-  background: var(--text-secondary);
-  opacity: 0.45;
-}
-
-.hub-day-planner-bar-value {
-  font-size: 0.78rem;
-  font-variant-numeric: tabular-nums;
-  color: var(--text-secondary);
-  min-width: 1.75rem;
-  text-align: right;
-}
-
-.hub-day-planner-add {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-  margin-bottom: 0.65rem;
-}
-
-.hub-day-planner-add .hub-input {
-  flex: 1 1 12rem;
-  min-width: 0;
-}
-
-.hub-day-planner-option-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.hub-day-planner-option-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  align-items: center;
-}
-
-.hub-day-planner-option-row .hub-input {
-  flex: 1 1 10rem;
-  min-width: 0;
-}
-
-.hub-day-planner-option-label {
-  flex: 1 1 8rem;
-  font-size: 0.88rem;
-  color: var(--text-primary);
-}
-
-.hub-day-planner-hours {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.hub-day-planner-hour-row {
-  display: grid;
-  grid-template-columns: minmax(6.5rem, 7.5rem) 1fr;
-  gap: 0.5rem;
-  align-items: center;
-  margin: 0;
-}
-
-.hub-day-planner-hour-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.hub-day-planner-select {
-  margin: 0;
 }
