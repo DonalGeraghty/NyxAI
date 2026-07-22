@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import GooeyButton from '../components/GooeyButton'
-import SoftAurora from '../components/SoftAurora'
+import Lightfall from '../components/Lightfall'
+
+const LIGHTFALL_COLORS = ['#ffffff', '#b8b8b8', '#6f6f6f']
 
 function NyxAIHome() {
   const [message, setMessage] = useState('')
@@ -15,21 +16,26 @@ function NyxAIHome() {
 
   return (
     <main className="hub-page nyxai-home">
-      <SoftAurora
-        brightness={0.65}
-        color1="#5537a5"
-        color2="#286b88"
-        speed={0.35}
-        mouseInfluence={0.12}
+      <Lightfall
+        colors={LIGHTFALL_COLORS}
+        backgroundColor="#000000"
+        speed={0.3}
+        streakCount={4}
+        streakWidth={0.7}
+        streakLength={1.4}
+        glow={0.55}
+        density={0.5}
+        twinkle={0.45}
+        backgroundGlow={0.05}
+        opacity={0.6}
+        mouseStrength={0.25}
       />
       <div className="hub-inner">
         <header className="hub-header">
           <h1 className="hub-title">NyxAI</h1>
-          <p className="hub-sub">What would you like to explore?</p>
         </header>
 
         <form className="message-composer" onSubmit={handleSubmit}>
-          <label htmlFor="message">Message</label>
           <textarea
             id="message"
             value={message}
@@ -40,10 +46,10 @@ function NyxAIHome() {
                 event.currentTarget.form.requestSubmit()
               }
             }}
-            placeholder="Ask Nyx anything…"
+            placeholder="I ate an apple…"
             rows="5"
           />
-          <GooeyButton type="submit" disabled={!message.trim()}>Send</GooeyButton>
+          <button type="submit" disabled={!message.trim()}>Send</button>
         </form>
 
         {response && (
