@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Bar,
   BarChart,
@@ -12,6 +12,7 @@ import {
 } from 'recharts'
 import { useAuth } from '../context/AuthContext'
 import { demoFoodEntries } from '../data/foodEntries'
+import { listMeals, toDisplayEntries } from '../services/nutrition'
 import { aggregateRecentDays, filterRecentEntries } from '../utils/nutrition'
 
 const tooltipStyle = {
@@ -22,7 +23,27 @@ const tooltipStyle = {
 
 function ChartsPage() {
   const { user } = useAuth()
-  const entries = user?.isDemo ? demoFoodEntries : []
+  const [entries, setEntries] = useState(user?.isDemo ? demoFoodEntries : [])
+  const [loading, setLoading] = useState(!user?.isDemo)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (user?.isDemo) return undefined
+    let active = true
+    listMeals()
+      .then((rows) => {
+        if (active) setEntries(toDisplayEntries(rows))
+      })
+      .catch((requestError) => {
+        if (active) setError(requestError.message || 'Could not load nutrition data.')
+      })
+      .finally(() => {
+        if (active) setLoading(false)
+      })
+    return () => {
+      active = false
+    }
+  }, [user?.isDemo])
   const recentEntries = filterRecentEntries(entries)
   const dailyData = aggregateRecentDays(entries)
   const totalCalories = dailyData.reduce((total, day) => total + day.calories, 0)
@@ -49,7 +70,11 @@ function ChartsPage() {
           <p>Nutrition trends from the last seven days.</p>
         </header>
 
-        {!recentEntries.length ? (
+        {loading ? (
+          <div className="charts-empty">Loading nutrition data…</div>
+        ) : error ? (
+          <div className="charts-empty" role="alert">{error}</div>
+        ) : !recentEntries.length ? (
           <div className="charts-empty">No food data is available to chart yet.</div>
         ) : (
           <>
